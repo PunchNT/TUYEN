@@ -1,21 +1,29 @@
-//
-//  ContentView.swift
-//  TUYEN
-//
-//  Created by Nattakorn Totone on 7/3/2569 BE.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showSplash = true
+    @State private var isLoggedIn = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        if showSplash {
+            
+            LogoApp()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        showSplash = false
+                    }
+                }
+            
+        } else {
+            
+            if isLoggedIn {
+                MainTabView()
+            } else {
+                LoginView(isLoggedIn: $isLoggedIn)
+            }
         }
-        .padding()
     }
 }
 
