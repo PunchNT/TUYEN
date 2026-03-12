@@ -1,18 +1,20 @@
-//
-//  RecipeModel.swift
-//  TUYEN
-//
-//  Created by Nattakorn Totone on 10/3/2569 BE.
-//
+import Foundation
 
-import SwiftUI
-
-struct RecipeModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct RecipeResponse: Codable {
+    let status: String
+    let total: Int
+    let data: [Recipe]
 }
 
-#Preview {
-    RecipeModel()
+struct Recipe: Identifiable, Codable {
+    var id: Int { recipe_id }
+    let recipe_id: Int
+    let title: String
+    let calories: Int
+    let prep_time: Int
+    let image_url: String?
+    
+    var matchPercentage: Int? = nil
+    var usedIngredientsCount: Int? = nil
+    var category: String? = nil // 🌟 เพิ่มตัวแปรนี้เข้ามารับหมวดหมู่
 }

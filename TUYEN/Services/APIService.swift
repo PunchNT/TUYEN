@@ -1,9 +1,3 @@
-//
-//  APIService.swift
-//  TUYEN
-//
-//  Created by Nattakorn Totone on 10/3/2569 BE.
-//
 
 import SwiftUI
 
